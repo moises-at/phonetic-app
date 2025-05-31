@@ -1,0 +1,28 @@
+# Ignorar el entorno virtual
+env/
+ENV/
+venv/
+.VENV/
+.venv/
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de log o bases de datos locales
+*.log
+*.sqlite3
+*.db
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de editores/IDE
+.vscode/
+.idea/
+
+# Carpetas y archivos ocultos de sistema operativo o herramientas
+*.swp
+*~
