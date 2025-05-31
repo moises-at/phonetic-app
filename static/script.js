@@ -79,3 +79,27 @@ copyButton.addEventListener("click", () => {
       }, 2000);
     });
 });
+
+// Función para cargar los íconos SVG dinámicamente
+function loadSvgIcons() {
+  const iconContainers = document.querySelectorAll("[data-icon]"); // Busca elementos con el atributo data-icon
+
+  iconContainers.forEach((container) => {
+    const iconName = container.getAttribute("data-icon");
+    const iconSize = container.getAttribute("data-size") || "24px"; // Tamaño por defecto
+    const iconPath = iconPaths[iconName]; // Accede al objeto iconPaths definido en icons.js
+
+    if (iconPath) {
+      container.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" width="${iconSize}" height="${iconSize}" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="${iconPath}"></path>
+              </svg>
+          `;
+    } else {
+      console.warn(`Icono '${iconName}' no encontrado en iconPaths.`);
+    }
+  });
+}
+
+// Llama a la función para cargar los íconos cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", loadSvgIcons);
